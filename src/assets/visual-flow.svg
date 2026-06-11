@@ -20,16 +20,16 @@
     <rect x="328" y="196" width="172" height="58" rx="10"/>
   </g>
   <g stroke="#637174" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M158 126 H186"/>
-    <path d="M304 126 H332"/>
-    <path d="M410 160 V178 H140 V196"/>
-    <path d="M218 225 H328"/>
+    <path d="M158 126 H176"/>
+    <path d="M304 126 H322"/>
+    <path d="M410 160 V178 H140 V186"/>
+    <path d="M218 225 H318"/>
   </g>
   <g fill="#637174">
-    <path d="M181 118 L193 126 L181 134Z"/>
-    <path d="M327 118 L339 126 L327 134Z"/>
-    <path d="M132 190 L140 202 L148 190Z"/>
-    <path d="M323 217 L335 225 L323 233Z"/>
+    <path d="M176 118 L186 126 L176 134Z"/>
+    <path d="M322 118 L332 126 L322 134Z"/>
+    <path d="M132 186 L140 196 L148 186Z"/>
+    <path d="M318 217 L328 225 L318 233Z"/>
   </g>
   <g font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-weight="700" font-size="14" fill="#536064">
     <text x="61" y="122">input</text>

@@ -21,17 +21,17 @@
       <text x="88" y="249">Board</text>
       <text x="424" y="249">Pages</text>
     </g>
-    <g stroke="#637174" stroke-width="4" fill="none" stroke-linecap="round">
-      <path d="M170 100 L205 125"/>
-      <path d="M390 100 L355 125"/>
-      <path d="M170 232 L205 190"/>
-      <path d="M390 232 L355 190"/>
+    <g stroke="#637174" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M170 98 L184 121"/>
+      <path d="M390 98 L376 121"/>
+      <path d="M170 244 L184 191"/>
+      <path d="M390 244 L376 191"/>
     </g>
     <g fill="#637174">
-      <path d="M199 116 L211 129 L193 129Z"/>
-      <path d="M361 116 L349 129 L367 129Z"/>
-      <path d="M198 195 L210 183 L212 201Z"/>
-      <path d="M362 195 L350 183 L348 201Z"/>
+      <path d="M190 130 L178 124 L189 117Z"/>
+      <path d="M370 130 L382 124 L371 117Z"/>
+      <path d="M190 184 L180 194 L177 180Z"/>
+      <path d="M370 184 L380 194 L383 180Z"/>
     </g>
     <rect x="192" y="230" width="78" height="28" rx="14" fill="#e7f2ee" stroke="#0f7a65"/>
     <rect x="290" y="230" width="78" height="28" rx="14" fill="#e7f2ee" stroke="#0f7a65"/>
