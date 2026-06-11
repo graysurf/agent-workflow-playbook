@@ -440,6 +440,33 @@ p {
   margin-bottom: 0.9rem;
 }
 
+.visual-guide .surface-card {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 0.85rem;
+}
+
+.grid.four.visual-guide {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.visual-guide img {
+  aspect-ratio: 7 / 4;
+  background: #f6f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.visual-guide h3 {
+  margin: 0;
+}
+
+.visual-guide p {
+  margin: 0;
+}
+
 .tool-screenshot {
   background: #071820;
 }

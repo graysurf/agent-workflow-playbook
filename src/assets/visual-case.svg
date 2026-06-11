@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="320" viewBox="0 0 560 320" role="img" aria-labelledby="title desc">
+  <title id="title">Shared primitive case diagram example</title>
+  <desc id="desc">A forge-cli primitive connected to CLI, Alfred, Board, and Pages entrypoints across GitHub and GitLab providers.</desc>
+  <rect width="560" height="320" rx="16" fill="#f6f8f4"/>
+  <rect x="28" y="28" width="504" height="264" rx="12" fill="#ffffff" stroke="#d6dedb" stroke-width="2"/>
+  <g font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <rect x="190" y="112" width="180" height="90" rx="14" fill="#10252b" stroke="#0f7a65" stroke-width="3"/>
+    <text x="230" y="149" font-size="22" font-weight="900" fill="#dff7ec">forge-cli</text>
+    <text x="218" y="174" font-size="14" font-weight="800" fill="#a8c7c4">stable primitive</text>
+    <g fill="#e8eef8" stroke="#3463a3" stroke-width="2">
+      <rect x="54" y="62" width="116" height="54" rx="10"/>
+      <rect x="390" y="62" width="116" height="54" rx="10"/>
+    </g>
+    <g fill="#fff6de" stroke="#9a6a0b" stroke-width="2">
+      <rect x="54" y="216" width="116" height="54" rx="10"/>
+      <rect x="390" y="216" width="116" height="54" rx="10"/>
+    </g>
+    <g font-size="18" font-weight="900" fill="#1d292b">
+      <text x="88" y="95">CLI</text>
+      <text x="424" y="95">Alfred</text>
+      <text x="88" y="249">Board</text>
+      <text x="424" y="249">Pages</text>
+    </g>
+    <g stroke="#637174" stroke-width="4" fill="none" stroke-linecap="round">
+      <path d="M170 100 L205 125"/>
+      <path d="M390 100 L355 125"/>
+      <path d="M170 232 L205 190"/>
+      <path d="M390 232 L355 190"/>
+    </g>
+    <g fill="#637174">
+      <path d="M199 116 L211 129 L193 129Z"/>
+      <path d="M361 116 L349 129 L367 129Z"/>
+      <path d="M198 195 L210 183 L212 201Z"/>
+      <path d="M362 195 L350 183 L348 201Z"/>
+    </g>
+    <rect x="192" y="230" width="78" height="28" rx="14" fill="#e7f2ee" stroke="#0f7a65"/>
+    <rect x="290" y="230" width="78" height="28" rx="14" fill="#e7f2ee" stroke="#0f7a65"/>
+    <text x="211" y="249" font-size="13" font-weight="900" fill="#0f7a65">GitHub</text>
+    <text x="310" y="249" font-size="13" font-weight="900" fill="#0f7a65">GitLab</text>
+  </g>
+</svg>

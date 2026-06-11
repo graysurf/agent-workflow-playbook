@@ -754,20 +754,24 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
               案例圖說明同一個 primitive 如何被不同入口使用，repo 截圖提供可追溯 source。
             </p>
           </div>
-          <div class="grid four">
+          <div class="grid four visual-guide">
             <article class="surface-card">
+              <img src="assets/visual-flow.svg" alt="流程圖範例：prompt、skill、validation、evidence、retained rule 的責任流動" loading="lazy" />
               <h3>流程圖</h3>
               <p>用在 core model、hooks、heuristic loop。說明從 prompt 到 validation、從 failure 到 retained rule 的流動。</p>
             </article>
             <article class="surface-card">
+              <img src="assets/visual-layers.svg" alt="分層圖範例：policies、skills、hooks、CLI、UI 的責任分層" loading="lazy" />
               <h3>分層圖</h3>
               <p>用在 policies / skills / hooks / CLI / UI。標出每一層的責任，不把所有事情塞進 skill。</p>
             </article>
             <article class="surface-card">
+              <img src="assets/visual-case.svg" alt="案例圖範例：forge-cli primitive 被 CLI、Alfred、Board、Pages 使用" loading="lazy" />
               <h3>案例圖</h3>
               <p>用在 forge-cli、Alfred、symphony-board。說明同一個工具能力如何服務不同場景。</p>
             </article>
             <article class="surface-card">
+              <img src="assets/visual-repo.svg" alt="repo 截圖範例：核心方法旁邊放可追溯的 repo source" loading="lazy" />
               <h3>repo 截圖</h3>
               <p>用在每個核心概念旁邊。截圖不是證明 repo 很大，而是提供可點閱、可追溯的 source。</p>
             </article>
