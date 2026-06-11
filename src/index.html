@@ -30,6 +30,7 @@
         <a href="#case-forge" data-nav-link>forge-cli</a>
         <a href="#frontends" data-nav-link>Frontends</a>
         <a href="#adopt" data-nav-link>Adopt</a>
+        <a href="#install" data-nav-link>Install</a>
         <a href="#resources" data-nav-link>Links</a>
       </nav>
     </header>
@@ -774,6 +775,131 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
               <img src="assets/visual-repo.svg" alt="repo 截圖範例：核心方法旁邊放可追溯的 repo source" loading="lazy" />
               <h3>repo 截圖</h3>
               <p>用在每個核心概念旁邊。截圖不是證明 repo 很大，而是提供可點閱、可追溯的 source。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt" id="install">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Install</p>
+            <h2>用 agent 安裝 agent-runtime-kit</h2>
+            <p class="lead">
+              這不是傳統「人照 README 一行一行複製」的安裝方式。比較好的做法是把安裝也當成
+              agent workflow：human 給目標、限制和確認點；agent 讀 repo 裡的安裝 contract、
+              先備份、跑 dry-run、說明會修改哪些 runtime surface，確認後再 apply。
+              失敗時也不要只丟錯誤訊息給人，而是讓 agent 依 evidence 修復並重跑驗證。
+            </p>
+          </div>
+
+          <div class="callout install-warning">
+            這個安裝會改變本機 agent 工作環境。開始前必須先備份
+            <code>${CODEX_HOME:-$HOME/.codex}</code>、<code>$HOME/.claude</code>、
+            <code>config.toml</code>、<code>settings.json</code>、個人 skills、MCP / auth 相關設定。
+            備份只留在本機，不要 commit 到任何 repo；agent 要先列出備份位置和將要修改的路徑。
+          </div>
+
+          <div class="grid two install-grid">
+            <article class="surface-card install-card">
+              <span class="tag">1. Agent prompt</span>
+              <h3>把安裝交給 agent，但保留確認權</h3>
+              <p>
+                重點不是把命令背起來，而是給 agent 一個有邊界的任務：先讀 source、先備份、先 dry-run，
+                不要未確認就改 live home。
+              </p>
+              <div class="code-panel">
+                <div class="code-panel-header">
+                  <span>copyable agent task</span>
+                  <button class="copy-button" type="button" data-copy="#install-agent-prompt-code">複製</button>
+                </div>
+                <pre><code id="install-agent-prompt-code">請幫我安裝 graysurf/agent-runtime-kit 到這台 Mac。
+先不要修改 live runtime home。
+
+請先完成：
+1. 讀 README.md、DEVELOPMENT.md、scripts/setup.sh、scripts/sync-runtime-surfaces.sh。
+2. 檢查現有 ${CODEX_HOME:-$HOME/.codex} 和 $HOME/.claude，建立本機備份。
+3. 跑 setup dry-run，列出會修改的檔案、symlink、managed config block。
+4. 用繁中回報安裝計畫和風險，等我確認後才 apply。
+
+如果 apply 失敗，請保留錯誤 evidence，判斷原因，修復後重跑 doctor / validation。</code></pre>
+              </div>
+            </article>
+
+            <article class="surface-card install-card">
+              <span class="tag">2. Agent actions</span>
+              <h3>agent 會執行的安裝 contract</h3>
+              <p>
+                <code>nils-cli</code> 提供 <code>agent-runtime</code> 等 stable commands；
+                <code>scripts/setup.sh</code> 是第一次安裝或乾淨重裝的 wrapper。human 不必手動處理每個分支，
+                但 agent 必須先 dry-run 並清楚回報。
+              </p>
+              <div class="code-panel">
+                <div class="code-panel-header">
+                  <span>commands agent may run</span>
+                  <button class="copy-button" type="button" data-copy="#install-setup-code">複製</button>
+                </div>
+                <pre><code id="install-setup-code">brew tap sympoies/tap
+brew install sympoies/tap/nils-cli
+
+git clone https://github.com/graysurf/agent-runtime-kit.git "$HOME/.config/agent-runtime-kit"
+cd "$HOME/.config/agent-runtime-kit"
+
+bash scripts/setup.sh --profile core --skip-homebrew-install --dry-run
+bash scripts/setup.sh --profile core --skip-homebrew-install</code></pre>
+              </div>
+              <p class="note">如果機器沒有 Homebrew，agent 應先說明，再移除 <code>--skip-homebrew-install</code> 讓 setup wrapper 安裝。</p>
+            </article>
+          </div>
+
+          <div class="grid two install-surface-grid">
+            <article class="surface-card">
+              <h3>會寫入哪些地方</h3>
+              <p>
+                Codex 主要是 <code>$CODEX_HOME/AGENTS.md</code>、<code>$CODEX_HOME/skills</code>、
+                hook scripts 和 <code>config.toml</code> managed block；Claude 主要是
+                <code>$HOME/.claude/CLAUDE.md</code>、plugins / skills、hooks 和 settings hooks block。
+              </p>
+            </article>
+            <article class="surface-card">
+              <h3>失敗時讓 agent 修復</h3>
+              <p>
+                失敗不是把 stack trace 丟給人。agent 應該保留 log、判斷是 Homebrew、CLI version、
+                symlink collision、managed block drift、還是 runtime doctor failure，修復後重跑驗證。
+              </p>
+              <div class="code-panel compact">
+                <div class="code-panel-header">
+                  <span>repair checks</span>
+                  <button class="copy-button" type="button" data-copy="#install-repair-code">複製</button>
+                </div>
+                <pre><code id="install-repair-code">cd "$HOME/.config/agent-runtime-kit"
+agent-runtime doctor --product codex --format json
+agent-runtime doctor --product claude --format json
+agent-docs audit --target all --strict</code></pre>
+              </div>
+            </article>
+            <article class="surface-card">
+              <h3>日常更新也交給 agent</h3>
+              <p>
+                第一次安裝後，refresh 也是同一套流程：先 dry-run，說明差異和會改的 live home，
+                確認後 apply。這是 agent-native install flow，不是一次性手動安裝。
+              </p>
+              <div class="code-panel compact">
+                <div class="code-panel-header">
+                  <span>refresh</span>
+                  <button class="copy-button" type="button" data-copy="#install-refresh-code">複製</button>
+                </div>
+                <pre><code id="install-refresh-code">cd "$HOME/.config/agent-runtime-kit"
+bash scripts/sync-runtime-surfaces.sh
+bash scripts/sync-runtime-surfaces.sh --apply</code></pre>
+              </div>
+            </article>
+            <article class="surface-card">
+              <h3>Repo evidence</h3>
+              <p><a href="https://github.com/graysurf/agent-runtime-kit#local-setup" target="_blank" rel="noopener noreferrer">README: Local setup</a></p>
+              <p><a href="https://github.com/graysurf/agent-runtime-kit/blob/main/DEVELOPMENT.md#setup" target="_blank" rel="noopener noreferrer">DEVELOPMENT: Setup</a></p>
+              <p><a href="https://github.com/graysurf/agent-runtime-kit/blob/main/scripts/setup.sh" target="_blank" rel="noopener noreferrer">scripts/setup.sh</a></p>
+              <p><a href="https://github.com/graysurf/agent-runtime-kit/blob/main/scripts/sync-runtime-surfaces.sh" target="_blank" rel="noopener noreferrer">sync-runtime-surfaces.sh</a></p>
             </article>
           </div>
         </div>

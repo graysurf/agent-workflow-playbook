@@ -227,6 +227,7 @@ p {
 .section {
   border-bottom: 1px solid var(--line);
   padding: 5rem 2rem;
+  scroll-margin-top: 5.5rem;
 }
 
 .section.alt {
@@ -500,6 +501,29 @@ p {
   padding: 1rem 1.2rem;
 }
 
+.install-warning {
+  color: #2e2a1c;
+  font-weight: 700;
+}
+
+.install-grid {
+  align-items: stretch;
+  margin-top: 1.2rem;
+}
+
+.install-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.install-card .code-panel {
+  margin-top: auto;
+}
+
+.install-surface-grid {
+  margin-top: 1rem;
+}
+
 .section.dark .callout {
   background: #322b1a;
   border-color: #6b5d33;
@@ -538,6 +562,10 @@ pre {
   margin: 0;
   overflow-x: auto;
   padding: 1rem;
+}
+
+.code-panel.compact pre {
+  padding: 0.8rem;
 }
 
 .cli-demo {
