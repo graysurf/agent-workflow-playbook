@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">symphony-board screenshot</title>
+  <desc id="desc">Visual excerpt from symphony-board README showing provider-agnostic contract architecture.</desc>
+  <rect width="900" height="560" fill="#eef3f1"/>
+  <rect x="42" y="34" width="816" height="492" rx="12" fill="#ffffff" stroke="#d8dfdc" stroke-width="2"/>
+  <text x="78" y="92" fill="#1d2728" font-family="Arial, sans-serif" font-size="32" font-weight="700">symphony-board</text>
+  <text x="78" y="126" fill="#5f6b6d" font-family="Arial, sans-serif" font-size="18">Provider-agnostic work-item board for GitHub and GitLab.</text>
+
+  <rect x="96" y="184" width="194" height="86" rx="10" fill="#e7f2ee" stroke="#0d6f5d"/>
+  <text x="126" y="221" fill="#0d6f5d" font-family="Arial, sans-serif" font-size="20" font-weight="700">Raw Store</text>
+  <text x="126" y="250" fill="#314042" font-family="Arial, sans-serif" font-size="15">opaque provider payloads</text>
+
+  <rect x="354" y="184" width="194" height="86" rx="10" fill="#edf2fb" stroke="#315f9f"/>
+  <text x="384" y="221" fill="#315f9f" font-family="Arial, sans-serif" font-size="20" font-weight="700">Canonical DB</text>
+  <text x="384" y="250" fill="#314042" font-family="Arial, sans-serif" font-size="15">items, edges, activity</text>
+
+  <rect x="612" y="184" width="194" height="86" rx="10" fill="#fff7e1" stroke="#8b650f"/>
+  <text x="642" y="221" fill="#8b650f" font-family="Arial, sans-serif" font-size="20" font-weight="700">Contract</text>
+  <text x="642" y="250" fill="#314042" font-family="Arial, sans-serif" font-size="15">versioned JSON to UI</text>
+
+  <line x1="290" y1="227" x2="354" y2="227" stroke="#637174" stroke-width="3"/>
+  <line x1="548" y1="227" x2="612" y2="227" stroke="#637174" stroke-width="3"/>
+
+  <rect x="94" y="326" width="714" height="138" rx="10" fill="#182225"/>
+  <text x="124" y="364" fill="#dfe8e6" font-family="Menlo, monospace" font-size="18">providers --fetch--> raw store</text>
+  <text x="124" y="398" fill="#dfe8e6" font-family="Menlo, monospace" font-size="18">raw store --normalize--> canonical DB</text>
+  <text x="124" y="432" fill="#dfe8e6" font-family="Menlo, monospace" font-size="18">canonical DB --buildContract--> read-only UI / consumers</text>
+</svg>

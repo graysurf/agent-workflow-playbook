@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">把 Agent 變成團隊工作流</title>
+  <desc id="desc">Open Graph image for the Agent Workflow Playbook site.</desc>
+  <rect width="1200" height="630" fill="#f6f8f5"/>
+  <rect x="70" y="70" width="1060" height="490" rx="24" fill="#ffffff" stroke="#d8dfdc" stroke-width="3"/>
+  <text x="120" y="180" fill="#0d6f5d" font-family="Arial, sans-serif" font-size="32" font-weight="700">AI workflow sharing</text>
+  <text x="120" y="275" fill="#1d2728" font-family="Arial, sans-serif" font-size="72" font-weight="800">把 Agent 變成</text>
+  <text x="120" y="360" fill="#1d2728" font-family="Arial, sans-serif" font-size="72" font-weight="800">團隊工作流</text>
+  <text x="120" y="430" fill="#5f6b6d" font-family="Arial, sans-serif" font-size="28">skills · hooks · policies · work tier · heuristic system · CLI contracts</text>
+  <rect x="855" y="155" width="170" height="64" rx="12" fill="#e7f2ee" stroke="#0d6f5d" stroke-width="2"/>
+  <text x="902" y="197" fill="#0d6f5d" font-family="Arial, sans-serif" font-size="22" font-weight="700">Skills</text>
+  <rect x="780" y="260" width="320" height="64" rx="12" fill="#edf2fb" stroke="#315f9f" stroke-width="2"/>
+  <text x="848" y="302" fill="#315f9f" font-family="Arial, sans-serif" font-size="22" font-weight="700">CLI Contracts</text>
+  <rect x="855" y="365" width="170" height="64" rx="12" fill="#fff7e1" stroke="#8b650f" stroke-width="2"/>
+  <text x="888" y="407" fill="#8b650f" font-family="Arial, sans-serif" font-size="22" font-weight="700">Evidence</text>
+</svg>

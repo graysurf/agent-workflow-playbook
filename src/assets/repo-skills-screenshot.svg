@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Runtime skills repository screenshot</title>
+  <desc id="desc">Visual excerpt from core skills README showing skill categories and editing rubric.</desc>
+  <rect width="900" height="560" fill="#eef3f1"/>
+  <rect x="34" y="32" width="832" height="496" rx="12" fill="#182225"/>
+  <rect x="34" y="32" width="832" height="44" rx="12" fill="#263436"/>
+  <circle cx="64" cy="54" r="7" fill="#b54837"/>
+  <circle cx="88" cy="54" r="7" fill="#8b650f"/>
+  <circle cx="112" cy="54" r="7" fill="#0d6f5d"/>
+  <text x="138" y="60" fill="#c6d0cf" font-family="Menlo, monospace" font-size="15">core/skills/README.md</text>
+
+  <text x="62" y="112" fill="#f4f7f5" font-family="Menlo, monospace" font-size="27" font-weight="700"># Runtime Skills</text>
+  <text x="62" y="152" fill="#c6d0cf" font-family="Menlo, monospace" font-size="17">manifests/skills.yaml is the machine-checkable inventory;</text>
+  <text x="62" y="178" fill="#c6d0cf" font-family="Menlo, monospace" font-size="17">this README is the human index for scanning the skill catalog.</text>
+
+  <rect x="62" y="214" width="776" height="142" rx="8" fill="#213033" stroke="#405153"/>
+  <text x="86" y="250" fill="#a9d8ff" font-family="Menlo, monospace" font-size="18">Category</text>
+  <text x="250" y="250" fill="#a9d8ff" font-family="Menlo, monospace" font-size="18">Skills</text>
+  <text x="374" y="250" fill="#a9d8ff" font-family="Menlo, monospace" font-size="18">Main series</text>
+  <line x1="86" y1="268" x2="814" y2="268" stroke="#526567"/>
+  <text x="86" y="296" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">code-review</text>
+  <text x="278" y="296" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">5</text>
+  <text x="374" y="296" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">quick pass, specialists, follow-up</text>
+  <text x="86" y="324" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">dispatch</text>
+  <text x="278" y="324" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">8</text>
+  <text x="374" y="324" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">plan tracking, dispatch lanes</text>
+  <text x="86" y="352" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">meta</text>
+  <text x="278" y="352" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">22</text>
+  <text x="374" y="352" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">runtime primitives, lifecycle, maintenance</text>
+
+  <text x="62" y="410" fill="#f4f7f5" font-family="Menlo, monospace" font-size="21" font-weight="700">Skill Body Editing Rubric</text>
+  <text x="86" y="444" fill="#dfe8e6" font-family="Menlo, monospace" font-size="16">Keep: prerequisites, irreversible operations, provider differences,</text>
+  <text x="86" y="470" fill="#dfe8e6" font-family="Menlo, monospace" font-size="16">stop conditions, ownership boundaries, validation entrypoints.</text>
+  <text x="86" y="496" fill="#e8c878" font-family="Menlo, monospace" font-size="16">Remove: prose that only repeats CLI help or history.</text>
+</svg>

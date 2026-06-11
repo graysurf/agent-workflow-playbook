@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Work tier ladder screenshot</title>
+  <desc id="desc">Visual excerpt of work tier levels policy showing L0 to L3.</desc>
+  <rect width="900" height="560" fill="#f6f8f5"/>
+  <rect x="40" y="36" width="820" height="488" rx="12" fill="#ffffff" stroke="#d8dfdc" stroke-width="2"/>
+  <text x="72" y="90" fill="#1d2728" font-family="Arial, sans-serif" font-size="32" font-weight="700">Work Tier Levels</text>
+  <text x="72" y="124" fill="#5f6b6d" font-family="Arial, sans-serif" font-size="17">Pick the lowest applicable tier. Size alone is never the escalation reason.</text>
+
+  <rect x="72" y="164" width="756" height="58" rx="8" fill="#1d2728"/>
+  <text x="96" y="201" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="700">Tier</text>
+  <text x="210" y="201" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="700">Tracking artifact</text>
+  <text x="520" y="201" fill="#ffffff" font-family="Arial, sans-serif" font-size="18" font-weight="700">Primary method</text>
+
+  <g font-family="Arial, sans-serif" font-size="18">
+    <rect x="72" y="238" width="756" height="62" rx="8" fill="#e7f2ee" stroke="#0d6f5d"/>
+    <text x="96" y="276" fill="#0d6f5d" font-weight="700">L0</text>
+    <text x="210" y="276" fill="#1d2728">None; PR is enough</text>
+    <text x="520" y="276" fill="#1d2728">semantic-commit → deliver-pr</text>
+
+    <rect x="72" y="312" width="756" height="62" rx="8" fill="#edf2fb" stroke="#315f9f"/>
+    <text x="96" y="350" fill="#315f9f" font-weight="700">L1</text>
+    <text x="210" y="350" fill="#1d2728">Follow-up issue</text>
+    <text x="520" y="350" fill="#1d2728">issue-follow-up</text>
+
+    <rect x="72" y="386" width="756" height="62" rx="8" fill="#fff7e1" stroke="#8b650f"/>
+    <text x="96" y="424" fill="#8b650f" font-weight="700">L2</text>
+    <text x="210" y="424" fill="#1d2728">Plan bundle + tracking issue</text>
+    <text x="520" y="424" fill="#1d2728">create / execute / deliver plan</text>
+
+    <rect x="72" y="460" width="756" height="62" rx="8" fill="#f4ece8" stroke="#b54837"/>
+    <text x="96" y="498" fill="#b54837" font-weight="700">L3</text>
+    <text x="210" y="498" fill="#1d2728">Dispatch issue + lanes</text>
+    <text x="520" y="498" fill="#1d2728">deliver-dispatch-plan</text>
+  </g>
+</svg>

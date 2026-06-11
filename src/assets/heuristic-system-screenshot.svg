@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Heuristic system screenshot</title>
+  <desc id="desc">Visual excerpt of heuristic system core loop and promotion ladder.</desc>
+  <rect width="900" height="560" fill="#eef3f1"/>
+  <rect x="34" y="32" width="832" height="496" rx="12" fill="#182225"/>
+  <rect x="34" y="32" width="832" height="44" rx="12" fill="#263436"/>
+  <circle cx="64" cy="54" r="7" fill="#b54837"/>
+  <circle cx="88" cy="54" r="7" fill="#8b650f"/>
+  <circle cx="112" cy="54" r="7" fill="#0d6f5d"/>
+  <text x="138" y="60" fill="#c6d0cf" font-family="Menlo, monospace" font-size="15">core/policies/heuristic-system/HEURISTIC_SYSTEM.md</text>
+
+  <text x="62" y="112" fill="#f4f7f5" font-family="Menlo, monospace" font-size="25" font-weight="700"># Heuristic System Framework</text>
+  <text x="62" y="150" fill="#c6d0cf" font-family="Menlo, monospace" font-size="16">The system does not train model weights;</text>
+  <text x="62" y="176" fill="#c6d0cf" font-family="Menlo, monospace" font-size="16">it turns workflow results into clearer policy, tests, scripts, runbooks, records.</text>
+
+  <rect x="62" y="216" width="776" height="96" rx="8" fill="#213033" stroke="#405153"/>
+  <text x="86" y="250" fill="#a9d8ff" font-family="Menlo, monospace" font-size="18" font-weight="700">Core Loop</text>
+  <text x="86" y="280" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">capture evidence → diagnose → fix or work around → promote lessons</text>
+
+  <rect x="62" y="344" width="776" height="132" rx="8" fill="#213033" stroke="#405153"/>
+  <text x="86" y="378" fill="#a9d8ff" font-family="Menlo, monospace" font-size="18" font-weight="700">Promotion Ladder</text>
+  <text x="86" y="410" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">one-off result → runtime evidence or final response summary</text>
+  <text x="86" y="438" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">unresolved workflow gap → curated error-inbox entry</text>
+  <text x="86" y="466" fill="#f4f7f5" font-family="Menlo, monospace" font-size="16">repeated failure → test, primitive, runbook, operation record</text>
+  <text x="86" y="494" fill="#e8c878" font-family="Menlo, monospace" font-size="16">Compression rule: keep the smallest stable rule that explains the group.</text>
+</svg>
