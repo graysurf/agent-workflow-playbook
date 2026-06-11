@@ -37,12 +37,12 @@
   <text x="624" y="478" fill="#315f9f" font-family="Arial, sans-serif" font-size="20" font-weight="700">Frontends</text>
   <text x="624" y="506" fill="#314042" font-family="Arial, sans-serif" font-size="15">Alfred / Board / Pages</text>
 
-  <rect x="222" y="560" width="476" height="52" rx="10" fill="#e7f2ee" stroke="#0d6f5d" stroke-width="2"/>
-  <text x="258" y="594" fill="#0d6f5d" font-family="Arial, sans-serif" font-size="20" font-weight="700">Evidence + Heuristic System: learn from workflow results</text>
+  <rect x="116" y="560" width="688" height="52" rx="10" fill="#e7f2ee" stroke="#0d6f5d" stroke-width="2"/>
+  <text x="170" y="594" fill="#0d6f5d" font-family="Arial, sans-serif" font-size="20" font-weight="700">Evidence + Heuristic System: learn from workflow results</text>
 
   <path d="M460 284 L460 340" stroke="#637174" stroke-width="3" fill="none"/>
   <path d="M460 414 L460 442" stroke="#637174" stroke-width="3" fill="none"/>
-  <path d="M220 528 C220 560 250 586 222 586" stroke="#637174" stroke-width="3" fill="none"/>
+  <path d="M220 528 L220 560" stroke="#637174" stroke-width="3" fill="none"/>
   <path d="M460 528 L460 560" stroke="#637174" stroke-width="3" fill="none"/>
-  <path d="M700 528 C700 560 670 586 698 586" stroke="#637174" stroke-width="3" fill="none"/>
+  <path d="M700 528 L700 560" stroke="#637174" stroke-width="3" fill="none"/>
 </svg>

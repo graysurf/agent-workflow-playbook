@@ -72,4 +72,19 @@ if (duplicateIds.length) {
   throw new Error(`Duplicate ids: ${[...new Set(duplicateIds)].join(", ")}`);
 }
 
+const externalLinks = [...index.matchAll(/<a\b[^>]*\bhref="https:\/\/[^"]+"[^>]*>/g)].map(
+  (match) => match[0]
+);
+const nonBlankExternalLinks = externalLinks.filter(
+  (tag) =>
+    !tag.includes('target="_blank"') ||
+    !tag.includes('rel="noopener noreferrer"')
+);
+
+if (nonBlankExternalLinks.length) {
+  throw new Error(
+    `External links must open in a new tab: ${nonBlankExternalLinks.join(", ")}`
+  );
+}
+
 console.log("Validation passed");
