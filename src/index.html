@@ -491,6 +491,166 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
               </div>
             </article>
           </div>
+          <div class="cli-demo" id="forge-cli-demo">
+            <div class="cli-demo-heading">
+              <div>
+                <p class="eyebrow">CLI Contract Demo</p>
+                <h3>forge-cli 怎麼把工具能力變成 stable primitive</h3>
+              </div>
+              <p>
+                查詢面維持 read-only：activity、inbox、issue、PR 都能用同一種 JSON envelope 讀取。
+                mutation 先走 dry-run，讓 agent 或 human 在真正改 provider state 前先看到 plan。
+              </p>
+            </div>
+            <div class="demo-tabs" role="tablist" aria-label="forge-cli command examples">
+              <button class="demo-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="demo-activity" data-demo-tab="demo-activity">Activity</button>
+              <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demo-inbox" data-demo-tab="demo-inbox">Inbox</button>
+              <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demo-issue" data-demo-tab="demo-issue">Issue</button>
+              <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demo-pr" data-demo-tab="demo-pr">PR</button>
+              <button class="demo-tab" type="button" role="tab" aria-selected="false" aria-controls="demo-dry-run" data-demo-tab="demo-dry-run">Dry-run</button>
+            </div>
+            <div class="demo-panels">
+              <article class="demo-panel is-active" id="demo-activity" role="tabpanel">
+                <div class="code-panel">
+                  <div class="code-panel-header">
+                    <span>Read-only activity feed</span>
+                    <button class="copy-button" data-copy="#demo-activity-command">複製</button>
+                  </div>
+                  <pre id="demo-activity-command"><code>forge-cli activity feed --repo sympoies/symphony-board --limit 5 --format json</code></pre>
+                  <pre><code>{
+  "ok": true,
+  "provider": "github",
+  "data": {
+    "items": [
+      {
+        "kind": "change_request",
+        "repo": "sympoies/symphony-board",
+        "number": 173,
+        "title": "feat(ui): URL-backed graph focus",
+        "updated_at": "2026-06-11T12:52:00Z",
+        "url": "https://github.com/sympoies/symphony-board/pull/173"
+      }
+    ]
+  }
+}</code></pre>
+                </div>
+                <ul class="demo-points">
+                  <li>用同一個 command 讀 repo activity，不需要先建立 issue 或 PR。</li>
+                  <li>回傳資料已經 normalize，frontend 不必自己理解 provider event shape。</li>
+                </ul>
+              </article>
+              <article class="demo-panel" id="demo-inbox" role="tabpanel" hidden>
+                <div class="code-panel">
+                  <div class="code-panel-header">
+                    <span>Cross-repo work inbox</span>
+                    <button class="copy-button" data-copy="#demo-inbox-command">複製</button>
+                  </div>
+                  <pre id="demo-inbox-command"><code>forge-cli inbox list --item-type pr --kind review --limit 5 --format json</code></pre>
+                  <pre><code>{
+  "ok": true,
+  "data": {
+    "items": [
+      {
+        "item_type": "pr",
+        "reason": "review",
+        "repo": "sympoies/symphony-board",
+        "number": 172,
+        "title": "feat(ui): graph node titles link to provider page",
+        "source": "github.com"
+      }
+    ]
+  }
+}</code></pre>
+                </div>
+                <ul class="demo-points">
+                  <li>這就是 Alfred Forge Inbox 和 agent triage 可以共用的資料面。</li>
+                  <li>`--item-type` 和 `--kind` 把查詢意圖變成穩定參數，而不是 prompt 裡的自由描述。</li>
+                </ul>
+              </article>
+              <article class="demo-panel" id="demo-issue" role="tabpanel" hidden>
+                <div class="code-panel">
+                  <div class="code-panel-header">
+                    <span>Issue view with comments</span>
+                    <button class="copy-button" data-copy="#demo-issue-command">複製</button>
+                  </div>
+                  <pre id="demo-issue-command"><code>forge-cli issue view 146 --with-comments --repo sympoies/symphony-board --format json</code></pre>
+                  <pre><code>{
+  "ok": true,
+  "provider": "github",
+  "data": {
+    "issue": {
+      "number": 146,
+      "state": "open",
+      "title": "desktop-standalone: persist provider tokens",
+      "labels": ["type::feature", "surface::desktop"],
+      "comments": [
+        { "author": "graysurf", "body_preview": "Need macOS Keychain storage..." }
+      ]
+    }
+  }
+}</code></pre>
+                </div>
+                <ul class="demo-points">
+                  <li>Issue lookup 是 read-only query；create / comment / close 才是 mutation。</li>
+                  <li>`--with-comments` 把上下文收進同一個 envelope，agent 不必再另外拼 provider command。</li>
+                </ul>
+              </article>
+              <article class="demo-panel" id="demo-pr" role="tabpanel" hidden>
+                <div class="code-panel">
+                  <div class="code-panel-header">
+                    <span>PR / MR normalized view</span>
+                    <button class="copy-button" data-copy="#demo-pr-command">複製</button>
+                  </div>
+                  <pre id="demo-pr-command"><code>forge-cli pr view 172 --repo sympoies/symphony-board --format json</code></pre>
+                  <pre><code>{
+  "ok": true,
+  "provider": "github",
+  "data": {
+    "change_request": {
+      "number": 172,
+      "state": "merged",
+      "base": "main",
+      "head": "feat/graph-node-title-links",
+      "checks": { "status": "success" },
+      "url": "https://github.com/sympoies/symphony-board/pull/172"
+    }
+  }
+}</code></pre>
+                </div>
+                <ul class="demo-points">
+                  <li>同一個 `pr view` 抽象可以對應 GitHub PR 或 GitLab MR。</li>
+                  <li>呼叫端只看 `change_request` contract，不直接依賴 `gh` / `glab` 原始輸出。</li>
+                </ul>
+              </article>
+              <article class="demo-panel" id="demo-dry-run" role="tabpanel" hidden>
+                <div class="code-panel">
+                  <div class="code-panel-header">
+                    <span>Mutation preview before provider write</span>
+                    <button class="copy-button" data-copy="#demo-dry-run-command">複製</button>
+                  </div>
+                  <pre id="demo-dry-run-command"><code>forge-cli pr deliver --kind feature --title "feat: expose graph node links" --dry-run --format json</code></pre>
+                  <pre><code>{
+  "ok": true,
+  "dry_run": true,
+  "data": {
+    "local_preflight": [
+      { "name": "branch_kind", "status": "pass" },
+      { "name": "clean_worktree", "status": "pass" }
+    ],
+    "plan": {
+      "steps": ["create_draft", "wait_checks", "ready", "merge"],
+      "provider_command": "gh pr create --draft ..."
+    }
+  }
+}</code></pre>
+                </div>
+                <ul class="demo-points">
+                  <li>Mutation 不是禁止，而是先把不可逆動作變成可審查 plan。</li>
+                  <li>Skill 可以要求 dry-run 通過後才進入真正 provider operation。</li>
+                </ul>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 

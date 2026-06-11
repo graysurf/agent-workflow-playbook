@@ -490,6 +490,7 @@ p {
   align-items: center;
   border-bottom: 1px solid #314145;
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
   padding: 0.55rem 0.8rem;
 }
@@ -510,6 +511,79 @@ pre {
   margin: 0;
   overflow-x: auto;
   padding: 1rem;
+}
+
+.cli-demo {
+  background: #223033;
+  border: 1px solid #405153;
+  border-radius: 8px;
+  margin-top: 1rem;
+  padding: 1.2rem;
+}
+
+.cli-demo-heading {
+  align-items: end;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  margin-bottom: 1rem;
+}
+
+.cli-demo-heading h3,
+.cli-demo-heading p {
+  margin-bottom: 0;
+}
+
+.demo-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.demo-tab {
+  background: #182225;
+  border: 1px solid #52686c;
+  border-radius: 8px;
+  color: #dfe8e6;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  min-height: 2.3rem;
+  padding: 0.35rem 0.75rem;
+}
+
+.demo-tab.is-active,
+.demo-tab:hover {
+  background: #e7f2ee;
+  border-color: #0d6f5d;
+  color: #0d6f5d;
+}
+
+.demo-panel {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.5fr) minmax(15rem, 0.5fr);
+}
+
+.demo-panel[hidden] {
+  display: none;
+}
+
+.demo-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.demo-points li {
+  border-top: 1px solid #405153;
+  color: #dfe8e6;
+  padding: 0.75rem 0;
+}
+
+.demo-points li:first-child {
+  border-top: 0;
 }
 
 .talk-track {
@@ -562,6 +636,8 @@ pre {
   .grid.three,
   .grid.four,
   .frontend-showcase,
+  .cli-demo-heading,
+  .demo-panel,
   .comparison {
     grid-template-columns: 1fr;
   }
