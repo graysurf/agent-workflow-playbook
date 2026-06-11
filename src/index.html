@@ -14,6 +14,7 @@
       content="一份給工程團隊的 agent workflow playbook：核心精神、案例、repo links、截圖與導入路線。"
     />
     <meta property="og:image" content="assets/og.svg" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -501,28 +502,38 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
               它是穩定的能力層；Alfred、web dashboard、agent skills 都只是不同場景的入口。
             </p>
           </div>
-          <div class="grid three">
+          <div class="frontend-showcase">
             <article class="evidence-card">
-              <img src="assets/alfred-screenshot.svg" alt="nils-alfredworkflow README 的 workflow list 截圖" />
+              <img
+                class="tool-screenshot"
+                src="assets/forge-inbox-alfred.png"
+                alt="Alfred Forge Inbox workflow 截圖，顯示 GitHub 和 GitLab work items"
+              />
               <h3>nils-alfredworkflow</h3>
               <p>macOS 快速入口，像 Forge Inbox 可以直接消費 `forge-cli inbox`。</p>
               <p><a href="https://github.com/sympoies/nils-alfredworkflow">打開 repo</a></p>
             </article>
             <article class="evidence-card">
-              <img src="assets/symphony-board-screenshot.svg" alt="symphony-board README 架構截圖" />
+              <img
+                class="tool-screenshot"
+                src="assets/symphony-board-activity.png"
+                alt="Symphony Board Activity 頁面截圖，顯示同步後的 activity feed"
+              />
               <h3>symphony-board</h3>
               <p>把 provider work items 同步成 local store、contract 和 read-only UI。</p>
               <p><a href="https://github.com/sympoies/symphony-board">打開 repo</a></p>
             </article>
-            <article class="surface-card">
-              <h3>Agent skills</h3>
-              <p>
-                對 agent 來說，skills 不必知道 UI 細節。它們只要知道何時使用哪個
-                CLI contract、如何驗證、何時 stop 或 escalate。
-              </p>
-              <p><a href="https://github.com/graysurf/agent-runtime-kit/tree/main/core/skills">打開 skills catalog</a></p>
-            </article>
           </div>
+          <article class="surface-card frontend-agent-card">
+            <h3>Agent skills</h3>
+            <p>
+              對 agent 來說，skills 不必知道 UI 細節。它們只要知道何時使用哪個
+              CLI contract、如何驗證、何時 stop 或 escalate。也就是說，human 在
+              Alfred / dashboard 裡看的入口，和 agent 在 workflow 裡使用的能力，
+              背後應該指向同一組 deterministic primitives。
+            </p>
+            <p><a href="https://github.com/graysurf/agent-runtime-kit/tree/main/core/skills">打開 skills catalog</a></p>
+          </article>
         </div>
       </section>
 

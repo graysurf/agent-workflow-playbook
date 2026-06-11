@@ -26,9 +26,10 @@ const requiredAssets = [
   "assets/work-tier-screenshot.svg",
   "assets/heuristic-system-screenshot.svg",
   "assets/forge-cli-screenshot.svg",
-  "assets/alfred-screenshot.svg",
-  "assets/symphony-board-screenshot.svg",
+  "assets/forge-inbox-alfred.png",
+  "assets/symphony-board-activity.png",
   "assets/og.svg",
+  "assets/favicon.svg",
   "styles.css",
   "main.js"
 ];
