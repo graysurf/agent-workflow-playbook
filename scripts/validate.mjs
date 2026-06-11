@@ -7,7 +7,7 @@ const indexPath = resolve(dist, "index.html");
 const index = await readFile(indexPath, "utf8");
 
 const requiredStrings = [
-  "把 Agent 變成團隊工作流",
+  "把 Agent Workflow 變成可維護系統",
   "Skills 不是 prompt snippet",
   "Work Tier",
   "Heuristic System",
@@ -18,6 +18,15 @@ const requiredStrings = [
   "https://github.com/sympoies/nils-cli",
   "https://github.com/sympoies/nils-alfredworkflow",
   "https://github.com/sympoies/symphony-board"
+];
+
+const bannedStrings = [
+  "團隊",
+  "聽眾",
+  "分享目標",
+  "建議分享路線",
+  "Team skill",
+  "team skill"
 ];
 
 const requiredAssets = [
@@ -37,6 +46,12 @@ const requiredAssets = [
 for (const text of requiredStrings) {
   if (!index.includes(text)) {
     throw new Error(`Missing required content: ${text}`);
+  }
+}
+
+for (const text of bannedStrings) {
+  if (index.includes(text)) {
+    throw new Error(`Unexpected audience-specific content: ${text}`);
   }
 }
 

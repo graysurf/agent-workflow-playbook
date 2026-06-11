@@ -2,7 +2,7 @@
   "name": "agent-workflow-playbook",
   "version": "1.0.0",
   "private": true,
-  "description": "Chinese teaching site for sharing an agent workflow system built from skills, hooks, policies, CLI contracts, and shared frontends.",
+  "description": "Chinese playbook site for building maintainable agent workflow systems from skills, hooks, policies, CLI contracts, and frontends.",
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",

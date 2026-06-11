@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>把 Agent 變成團隊工作流</title>
+    <title>把 Agent Workflow 變成可維護系統</title>
     <meta
       name="description"
-      content="中文教材：從 skills、hooks、policies、work tier、heuristic system、nils-cli 到多入口工具，分享如何把 agent 工作流變成團隊可共用的系統。"
+      content="中文 playbook：從 skills、hooks、policies、work tier、heuristic system、nils-cli 到多入口工具，建立可重用、可驗證、可交接的 agent workflow system。"
     />
-    <meta property="og:title" content="把 Agent 變成團隊工作流" />
+    <meta property="og:title" content="把 Agent Workflow 變成可維護系統" />
     <meta
       property="og:description"
-      content="一份給工程團隊的 agent workflow playbook：核心精神、案例、repo links、截圖與導入路線。"
+      content="Agent workflow playbook：核心方法、實作步驟、repo links、截圖與導入路線。"
     />
     <meta property="og:image" content="assets/og.svg" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -37,58 +37,59 @@
     <main id="main">
       <section class="hero" id="top">
         <div class="hero-copy">
-          <p class="eyebrow">AI workflow sharing / team skill system</p>
-          <h1>把 Agent 變成團隊工作流</h1>
+          <p class="eyebrow">AI workflow system / skill operations</p>
+          <h1>把 Agent Workflow<br />變成可維護系統</h1>
           <p class="lead">
-            這份教材不是介紹幾個 prompt 技巧，而是拆解一套工作方式：如何讓
-            human 和 agent 共用同一個工作環境，讓 skills、hooks、policies、
-            CLI contracts、work tier 和 heuristic system 一起形成可驗證、
-            可交接、可改進的工程流程。
+            核心方法不是累積 prompt 技巧，而是把 agent workflow 拆成一套
+            可操作的 runtime system：human 和 agent 在同一個工作環境裡使用同一套 contracts，
+            由 skills、hooks、policies、CLI contracts、work tier 和
+            heuristic system 形成可驗證、可交接、可改進的工程流程。
           </p>
           <div class="hero-actions">
-            <a class="button" href="#talk-path">看分享主線</a>
+            <a class="button" href="#talk-path">看方法主線</a>
             <a class="button secondary" href="https://github.com/graysurf/agent-runtime-kit">打開 agent-runtime-kit</a>
           </div>
         </div>
         <div class="hero-visual" aria-label="工作流系統總覽圖">
-          <img src="assets/system-map.svg" alt="Human 和 agent 共用 policies, skills, hooks, CLI, UI 的系統圖" />
+          <img src="assets/system-map.svg" alt="Human 和 agent 使用同一套 policies, skills, hooks, CLI, UI 的系統圖" />
         </div>
       </section>
 
-      <section class="section" id="audience">
+      <section class="section" id="method-baseline">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">Audience</p>
-            <h2>這場分享給誰聽</h2>
+            <p class="eyebrow">Method Baseline</p>
+            <h2>核心方法：先把工作流設計成 system</h2>
             <p class="lead">
-              目標聽眾是目前已經開始使用 skills 的 team members。他們下一步
-              不是「多寫幾個好用 prompt」，而是想做出團隊能共同維護、
-              共同使用、共同驗證的 skills 合集。
+              起點不是多寫幾個好用 prompt，也不是先整理一大包 skills。
+              先把 workflow 拆成可維護的層次：判斷留在 policies 和 skills，
+              穩定操作收斂成 CLI contracts，關鍵邊界交給 hooks，
+              執行結果留下 evidence，反覆出現的 friction 進入 heuristic loop。
             </p>
           </div>
           <div class="grid three">
             <article class="takeaway">
-              <span class="tag">現在狀態</span>
-              <h3>大家已經知道 agent 可以幫忙</h3>
+              <span class="tag">方法前提</span>
+              <h3>先設計環境，再寫 skill</h3>
               <p>
-                問題不在「agent 能不能做」，而在 agent 做事時是否能遵守團隊
-                的交付邊界、驗證規則和工具合約。
+                Skill 不是獨立存在的 prompt 檔。它必須被放進明確的 repo policy、
+                validation rule、CLI primitive 和交付流程裡，才會變成可重用能力。
               </p>
             </article>
             <article class="takeaway">
-              <span class="tag">分享目標</span>
-              <h3>把個人經驗整理成團隊方法</h3>
+              <span class="tag">抽象原則</span>
+              <h3>分開 judgment 和 deterministic primitives</h3>
               <p>
-                用我的 agent-runtime-kit、nils-cli、forge-cli、Alfred workflow
-                和 symphony-board 作為證據，抽出可複用的設計原則。
+                Policies / skills 負責判斷與流程選擇；nils-cli / forge-cli
+                負責穩定輸入輸出、dry-run、provider-neutral behavior 和 JSON contract。
               </p>
             </article>
             <article class="takeaway">
-              <span class="tag">完成感</span>
-              <h3>聽完能開始設計自己的 skill system</h3>
+              <span class="tag">落地檢查</span>
+              <h3>每個 workflow 都要能被驗證和改進</h3>
               <p>
-                每個人可以帶走一份 checklist：什麼該寫進 skill，什麼該變成 CLI，
-                什麼應該靠 hooks/policies 收斂。
+                一個 workflow 是否成熟，取決於它是否有清楚的 trigger、stop condition、
+                validation、evidence path，以及失敗後能被壓縮成更好規則的機制。
               </p>
             </article>
           </div>
@@ -98,33 +99,34 @@
       <section class="section alt" id="talk-path">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">Talk Path</p>
-            <h2>建議分享路線</h2>
+            <p class="eyebrow">Implementation Path</p>
+            <h2>實作主線：從問題到 deterministic primitives</h2>
             <p class="lead">
-              這不是工具 demo 的順序，而是聽眾理解系統的順序。先講問題與核心模型，
-              再用實際 repo 證明，最後回到 team 要怎麼採用。
+              順序不是工具 demo，而是建立系統的方法：先界定不穩定來源，
+              再切出核心分層，接著加入 agent 自主判斷與學習迴路，
+              最後用實際 repo 證明每個抽象層都有可操作的落點。
             </p>
           </div>
           <div class="timeline">
             <div class="timeline-item">
-              <h3>0-5 分鐘：為什麼需要一套 agent workflow system</h3>
-              <p>直接讓 agent 使用 shell、`gh`、`glab` 和散落資料，短期快，長期難驗證、難交接、難團隊化。</p>
+              <h3>Step 1：界定為什麼需要 agent workflow system</h3>
+              <p>直接讓 agent 使用 shell、`gh`、`glab` 和散落資料，短期快，長期難驗證、難交接、難重複。</p>
             </div>
             <div class="timeline-item">
-              <h3>5-15 分鐘：核心模型</h3>
-              <p>Policies 決定邊界，skills 決定 workflow，hooks 擋住危險路徑，CLI contracts 提供穩定工具面，frontends 讓不同場景共用同一套能力。</p>
+              <h3>Step 2：定義核心模型</h3>
+              <p>Policies 決定邊界，skills 決定 workflow，hooks 擋住危險路徑，CLI contracts 提供穩定工具面，frontends 讓不同場景重用同一套能力。</p>
             </div>
             <div class="timeline-item">
-              <h3>15-25 分鐘：agent 自主判斷層</h3>
+              <h3>Step 3：加入 agent 自主判斷層</h3>
               <p>Work Tier 讓 agent 自動判斷任務該用多少 tracking；Heuristic System 讓 agent 把失敗和反覆學到的規則沉澱成可維護的系統。</p>
             </div>
             <div class="timeline-item">
-              <h3>25-35 分鐘：案例</h3>
-              <p>forge-cli、nils-alfredworkflow、symphony-board：同一個核心工具能力，讓 human 和 agent 在 CLI、快速入口、dashboard 中共用。</p>
+              <h3>Step 4：把案例對應回系統層次</h3>
+              <p>forge-cli、nils-alfredworkflow、symphony-board：同一個核心工具能力，讓 human 和 agent 在 CLI、快速入口、dashboard 中使用。</p>
             </div>
             <div class="timeline-item">
-              <h3>35-45 分鐘：團隊怎麼做</h3>
-              <p>從一個常見 workflow 開始：定義 skill contract、補 CLI/validation、接 hooks、保留 evidence，最後壓縮成團隊可共用的 playbook。</p>
+              <h3>Step 5：用最小閉環導入</h3>
+              <p>從一個常見 workflow 開始：定義 skill contract、補 CLI/validation、接 hooks、保留 evidence，最後壓縮成可重用 playbook。</p>
             </div>
           </div>
         </div>
@@ -136,8 +138,8 @@
             <p class="eyebrow">Problem</p>
             <h2>問題不是 agent 不夠強，是工作環境沒有被設計</h2>
             <p class="lead">
-              一個人用 agent 很容易靠 tacit knowledge 補洞；團隊要共用時，
-              每個洞都會變成不穩定行為。教材的第一個重點，是把「個人習慣」
+              一次性使用 agent 很容易靠 tacit knowledge 補洞；當 workflow 要被重複執行時，
+              每個洞都會變成不穩定行為。第一個動作，是把「臨場習慣」
               轉成「可被 agent 和人共同執行的環境」。
             </p>
           </div>
@@ -154,7 +156,7 @@
             </article>
             <article class="surface-card">
               <span class="tag">After</span>
-              <h3>把環境設計成 shared system</h3>
+              <h3>把環境設計成 workflow system</h3>
               <ul class="checklist">
                 <li>CLI 提供 stable contract，skills 只描述 workflow decision。</li>
                 <li>Work Tier 讓 agent 在開始工作前主動判斷 tracking level。</li>
@@ -164,7 +166,7 @@
             </article>
           </div>
           <div class="callout">
-            <strong>這場分享的核心句：</strong>
+            <strong>核心句：</strong>
             不只是讓 agent 會用工具，而是把人和 agent 放進同一個可驗證、
             可約束、可交接、會持續改進的工作環境。
           </div>
@@ -177,7 +179,7 @@
             <p class="eyebrow">Core Model</p>
             <h2>核心模型：從意圖到工具，再回到學習</h2>
             <p class="lead">
-              這份教材的主軸不是每個 repo 的功能，而是這個分層：哪些東西是
+              主軸不是每個 repo 的功能，而是這個分層：哪些東西是
               judgment，哪些東西是 deterministic primitives，哪些東西只是不同場景的入口。
             </p>
           </div>
@@ -234,15 +236,15 @@
       <section class="section" id="takeaways">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">3 Takeaways</p>
-            <h2>我會讓聽眾帶走的三個觀念</h2>
+            <p class="eyebrow">Core Practices</p>
+            <h2>三個核心做法</h2>
           </div>
           <div class="grid three">
             <article class="takeaway">
               <span class="tag">01</span>
               <h3>Skills 不是 prompt snippet</h3>
               <p>
-                Team skill 應該是工作單元：它要說明何時用、前置條件、輸入輸出、
+                Skill 應該是工作單元：它要說明何時用、前置條件、輸入輸出、
                 failure modes、驗證和 handoff。好的 skill 會降低判斷成本，
                 而不是把所有經驗塞成長文。
               </p>
@@ -275,7 +277,7 @@
             <p class="eyebrow">Autonomous Decision Layer</p>
             <h2>Work Tier：讓 agent 自己判斷要多少 tracking</h2>
             <p class="lead">
-              Work Tier 是這套工作流中很值得分享的部分，因為它不是工具命令，
+              Work Tier 是這套工作流中的自主判斷層。它不是工具命令，
               而是 agent 在開始工作前應該自主做的判斷：這件事是直接做，
               還是需要 issue、plan tracking、甚至 dispatch lanes？
             </p>
@@ -292,7 +294,7 @@
               </p>
             </article>
             <article class="surface-card">
-              <h3>要講的重點</h3>
+              <h3>設計重點</h3>
               <ul class="checklist">
                 <li>Tier 衡量的是 tracking machinery，不是程式碼大小。</li>
                 <li>PR 是 delivery floor；tier 是 state tracking level。</li>
@@ -301,7 +303,7 @@
               </ul>
               <div class="code-panel">
                 <div class="code-panel-header">
-                  <span>agent 開始任務時的話術</span>
+                  <span>agent 啟動判斷模板</span>
                   <button class="copy-button" data-copy="#tier-script">複製</button>
                 </div>
                 <pre id="tier-script"><code>L0：這是直接交付的修改，PR 足以承載記錄，我會直接做並驗證。
@@ -327,7 +329,7 @@ L3：這需要多個獨立 lanes 或 subagents，建議走 dispatch plan。</cod
           </div>
           <div class="grid two">
             <article class="surface-card">
-              <h3>這一節要避免的誤解</h3>
+              <h3>要避免的誤解</h3>
               <ul class="checklist">
                 <li>不是把所有錯誤都寫進 memory。</li>
                 <li>不是把 raw logs 或暫時狀態 commit 進 repo。</li>
@@ -373,10 +375,10 @@ L3：這需要多個獨立 lanes 或 subagents，建議走 dispatch plan。</cod
         <div class="section-inner">
           <div class="section-heading">
             <p class="eyebrow">Skills</p>
-            <h2>Skills：把 tacit workflow 變成 team contract</h2>
+            <h2>Skills：把 tacit workflow 變成 explicit contract</h2>
             <p class="lead">
-              對團隊來說，skill 的價值不是「幫 agent 多背一段指令」。
-              它應該把資深工程師的工作判斷切成可交接、可驗證、可演進的 workflow contract。
+              Skill 的價值不是「幫 agent 多背一段指令」。
+              它應該把工作判斷切成可交接、可驗證、可演進的 workflow contract。
             </p>
           </div>
           <div class="grid two">
@@ -395,7 +397,7 @@ L3：這需要多個獨立 lanes 或 subagents，建議走 dispatch plan。</cod
               </p>
             </article>
             <article class="surface-card">
-              <h3>Team-ready skill checklist</h3>
+              <h3>Skill contract checklist</h3>
               <ul class="checklist">
                 <li>明確 trigger：何時該用，何時不該用。</li>
                 <li>明確 boundary：skill 擁有什麼，不擁有什麼。</li>
@@ -406,8 +408,8 @@ L3：這需要多個獨立 lanes 或 subagents，建議走 dispatch plan。</cod
             </article>
           </div>
           <div class="callout">
-            對聽眾的 practical takeaway：先不要問「我們要多少個 skills」。
-            先選一個重複發生、需要判斷、容易出錯的 workflow，把它寫成一個 decision-minimal skill。
+            實作順序：先不要問「要多少個 skills」。先選一個重複發生、
+            需要判斷、容易出錯的 workflow，把它寫成一個 decision-minimal skill。
           </div>
         </div>
       </section>
@@ -419,7 +421,7 @@ L3：這需要多個獨立 lanes 或 subagents，建議走 dispatch plan。</cod
             <h2>Hooks / Policies：把希望變成 guardrail</h2>
             <p class="lead">
               Policies 是「應該怎麼做」；hooks 是「真的不要讓錯的路徑悄悄發生」。
-              團隊做 agent skills 時，最危險的是只把規則寫進文字，卻沒有執行時的檢查。
+              做 agent skills 時，最危險的是只把規則寫進文字，卻沒有執行時的檢查。
             </p>
           </div>
           <div class="grid three">
@@ -454,9 +456,9 @@ L3：這需要多個獨立 lanes 或 subagents，建議走 dispatch plan。</cod
             <p class="eyebrow">Case Study</p>
             <h2>forge-cli：為什麼不是直接叫 agent 用 gh / glab</h2>
             <p class="lead">
-              `forge-cli` 是最容易讓團隊理解的案例：底層仍然可以使用 `gh` 和 `glab`，
+              `forge-cli` 展示一個典型 primitive 設計：底層仍然可以使用 `gh` 和 `glab`，
               但上層暴露的是 provider-neutral、可 dry-run、可檢查、可被 agent 和 human
-              共用的 workflow contract。
+              使用的 workflow contract。
             </p>
           </div>
           <div class="grid two">
@@ -471,7 +473,7 @@ L3：這需要多個獨立 lanes 或 subagents，建議走 dispatch plan。</cod
               </p>
             </article>
             <article class="surface-card">
-              <h3>要講的設計取捨</h3>
+              <h3>設計取捨</h3>
               <ul class="checklist">
                 <li>不隱藏 provider 差異，但把差異包成穩定欄位和 failure mode。</li>
                 <li>不讓每個 skill 自己拼 provider command。</li>
@@ -498,7 +500,7 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
             <p class="eyebrow">Same Tool, Many Frontends</p>
             <h2>同一個工具能力，不同使用場景</h2>
             <p class="lead">
-              這是整場分享最容易打到聽眾的畫面：CLI 不是只給 agent，也不是只給人。
+              這裡的重點是把「工具能力」和「使用入口」分開：CLI 不是只給 agent，也不是只給人。
               它是穩定的能力層；Alfred、web dashboard、agent skills 都只是不同場景的入口。
             </p>
           </div>
@@ -528,7 +530,7 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
             <h3>Agent skills</h3>
             <p>
               對 agent 來說，skills 不必知道 UI 細節。它們只要知道何時使用哪個
-              CLI contract、如何驗證、何時 stop 或 escalate。也就是說，human 在
+              CLI contract、如何驗證、何時 stop 或 escalate。Human 在
               Alfred / dashboard 裡看的入口，和 agent 在 workflow 裡使用的能力，
               背後應該指向同一組 deterministic primitives。
             </p>
@@ -540,10 +542,10 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
       <section class="section alt" id="adopt">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">Team Adoption</p>
-            <h2>團隊要怎麼開始做自己的 skills 合集</h2>
+            <p class="eyebrow">Implementation Loop</p>
+            <h2>如何開始搭建 skills 合集</h2>
             <p class="lead">
-              不要一開始就複製整套 agent-runtime-kit。先用最小閉環建立團隊肌肉：
+              不要一開始就複製整套 agent-runtime-kit。先用最小閉環建立操作肌肉：
               一個 workflow、一個 skill、一個 validation、一個 evidence path。
             </p>
           </div>
@@ -551,7 +553,7 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
             <article class="step">
               <div>
                 <h3>選 workflow，不選工具</h3>
-                <p>挑一個團隊常做、常卡、常需要資深工程師判斷的工作，例如 PR delivery、issue triage、release、incident note。</p>
+                <p>挑一個常做、常卡、常需要判斷的工作，例如 PR delivery、issue triage、release、incident note。</p>
               </div>
             </article>
             <article class="step">
@@ -585,11 +587,11 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
       <section class="section" id="slides">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">Section Visual Plan</p>
-            <h2>每一節應該放什麼圖</h2>
+            <p class="eyebrow">Visual Evidence</p>
+            <h2>圖像證據怎麼放</h2>
             <p class="lead">
-              目前先全部放上，驗收後再刪。這些圖的目的不是裝飾，而是讓聽眾能
-              將抽象方法對應到實際 repo 和可操作流程。
+              每張圖都要服務一個方法判斷：流程圖說明責任流動，分層圖說明邊界，
+              案例圖說明同一個 primitive 如何被不同入口使用，repo 截圖提供可追溯 source。
             </p>
           </div>
           <div class="grid four">
@@ -599,7 +601,7 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
             </article>
             <article class="surface-card">
               <h3>分層圖</h3>
-              <p>用在 policies / skills / hooks / CLI / UI。讓聽眾知道每一層的責任，不把所有事情塞進 skill。</p>
+              <p>用在 policies / skills / hooks / CLI / UI。標出每一層的責任，不把所有事情塞進 skill。</p>
             </article>
             <article class="surface-card">
               <h3>案例圖</h3>
@@ -607,7 +609,7 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
             </article>
             <article class="surface-card">
               <h3>repo 截圖</h3>
-              <p>用在每個核心概念旁邊。截圖不是證明 repo 很大，而是讓 team member 可以馬上點進去看源頭。</p>
+              <p>用在每個核心概念旁邊。截圖不是證明 repo 很大，而是提供可點閱、可追溯的 source。</p>
             </article>
           </div>
         </div>
@@ -618,7 +620,7 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
           <div class="section-heading">
             <p class="eyebrow">Links</p>
             <h2>Repo links 和延伸閱讀</h2>
-            <p class="lead">這些連結是教材的 evidence layer。分享時可以直接點開，讓聽眾看到實際 source。</p>
+            <p class="lead">這些連結是 evidence layer。每個方法主張都應該能回到實際 source、CLI surface 或 policy file。</p>
           </div>
           <div class="grid three">
             <article class="resource-card">
@@ -644,8 +646,8 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
             </article>
           </div>
           <div class="callout">
-            下一輪驗收時，建議直接從 GitHub Pages 頁面看：哪些段落太細、
-            哪些圖可以刪、哪些案例要換成更貼近 team 的日常 workflow。
+            使用順序：先看 core model 和 policies，再看 skills 如何定義 workflow contract，
+            接著看 nils-cli primitives，最後看 frontends 如何消費同一套能力。
           </div>
         </div>
       </section>
@@ -653,7 +655,7 @@ forge-cli label audit --catalog manifests/forge-labels.yaml --format json</code>
 
     <footer class="site-footer">
       <p>
-        Built as a GitHub Pages teaching site. Source:
+        Built as a GitHub Pages playbook site. Source:
         <a href="https://github.com/graysurf/agent-workflow-playbook">graysurf/agent-workflow-playbook</a>
       </p>
     </footer>

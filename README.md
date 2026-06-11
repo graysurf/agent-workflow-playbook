@@ -1,7 +1,7 @@
 # Agent Workflow Playbook
 
-這是一個中文教材網站，用來分享如何把個人 agent 工作流整理成團隊可共用的
-skills、hooks、policies、CLI contracts 與多入口工具。
+這是一個中文 playbook 網站，用來整理如何把 agent workflow 拆成可重用、
+可驗證、可交接的 skills、hooks、policies、CLI contracts 與多入口工具。
 
 ## Local Preview
 

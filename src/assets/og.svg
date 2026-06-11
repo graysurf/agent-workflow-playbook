@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">把 Agent 變成團隊工作流</title>
+  <title id="title">把 Agent Workflow 變成可維護系統</title>
   <desc id="desc">Open Graph image for the Agent Workflow Playbook site.</desc>
   <rect width="1200" height="630" fill="#f6f8f5"/>
   <rect x="70" y="70" width="1060" height="490" rx="24" fill="#ffffff" stroke="#d8dfdc" stroke-width="3"/>
-  <text x="120" y="180" fill="#0d6f5d" font-family="Arial, sans-serif" font-size="32" font-weight="700">AI workflow sharing</text>
-  <text x="120" y="275" fill="#1d2728" font-family="Arial, sans-serif" font-size="72" font-weight="800">把 Agent 變成</text>
-  <text x="120" y="360" fill="#1d2728" font-family="Arial, sans-serif" font-size="72" font-weight="800">團隊工作流</text>
+  <text x="120" y="180" fill="#0d6f5d" font-family="Arial, sans-serif" font-size="32" font-weight="700">AI workflow system</text>
+  <text x="120" y="275" fill="#1d2728" font-family="Arial, sans-serif" font-size="64" font-weight="800">把 Agent Workflow</text>
+  <text x="120" y="360" fill="#1d2728" font-family="Arial, sans-serif" font-size="64" font-weight="800">變成可維護系統</text>
   <text x="120" y="430" fill="#5f6b6d" font-family="Arial, sans-serif" font-size="28">skills · hooks · policies · work tier · heuristic system · CLI contracts</text>
   <rect x="855" y="155" width="170" height="64" rx="12" fill="#e7f2ee" stroke="#0d6f5d" stroke-width="2"/>
   <text x="902" y="197" fill="#0d6f5d" font-family="Arial, sans-serif" font-size="22" font-weight="700">Skills</text>
