@@ -5,6 +5,8 @@ const root = resolve(new URL("..", import.meta.url).pathname);
 const dist = resolve(root, "dist");
 const indexPath = resolve(dist, "index.html");
 const index = await readFile(indexPath, "utf8");
+const main = await readFile(resolve(dist, "main.js"), "utf8");
+const styles = await readFile(resolve(dist, "styles.css"), "utf8");
 
 const requiredStrings = [
   "把 Agent Workflow 變成可維護系統",
@@ -76,6 +78,21 @@ for (const asset of requiredAssets) {
   const info = await stat(target);
   if (!info.size) {
     throw new Error(`Empty asset: ${asset}`);
+  }
+}
+
+const requiredLightboxStrings = [
+  ["main.js", main, "image-lightbox"],
+  ["main.js", main, "image-zoom-trigger"],
+  ["main.js", main, "Escape"],
+  ["styles.css", styles, ".image-lightbox"],
+  ["styles.css", styles, ".image-zoom-trigger"],
+  ["styles.css", styles, "cursor: zoom-in"]
+];
+
+for (const [file, source, text] of requiredLightboxStrings) {
+  if (!source.includes(text)) {
+    throw new Error(`Missing image preview behavior in ${file}: ${text}`);
   }
 }
 
